@@ -112,7 +112,7 @@ function updateMessage() {
     win.classList.remove('hidden');
   } else if (statusGame === 'lose') {
     lose.classList.remove('hidden');
-  } else {
+  } else if (statusGame === 'idle') {
     start.classList.remove('hidden');
   }
 }
