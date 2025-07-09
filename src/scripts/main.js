@@ -29,7 +29,28 @@ startButton.addEventListener('click', () => {
   renderBoard();
   updateScore();
   updateMessage();
+  toggleButtons();
 });
+
+const restartButton = document.querySelector('.button.restart');
+
+restartButton.addEventListener('click', () => {
+  game.restart();
+  updateScore();
+  renderBoard();
+  updateMessage();
+  toggleButtons();
+});
+
+function toggleButtons() {
+  if (game.getStatus() === 'idle') {
+    startButton.classList.remove('hidden');
+    restartButton.classList.add('hidden');
+  } else {
+    startButton.classList.add('hidden');
+    restartButton.classList.remove('hidden');
+  }
+}
 
 window.addEventListener('keydown', (e) => {
   switch (e.key) {
@@ -95,12 +116,3 @@ function updateMessage() {
     start.classList.remove('hidden');
   }
 }
-
-const restartButton = document.querySelector('.button.restart');
-
-restartButton.addEventListener('click', () => {
-  game.restart();
-  updateScore();
-  renderBoard();
-  updateMessage();
-});

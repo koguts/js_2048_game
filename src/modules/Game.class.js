@@ -258,7 +258,15 @@ class Game {
    * Resets the game.
    */
   restart() {
-    this.start();
+    this.board = [
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+    ];
+
+    this.score = 0;
+    this.status = 'idle';
   }
 
   updateStatus() {
