@@ -9,15 +9,20 @@ const game = new Game();
 function renderBoard() {
   const cells = document.querySelectorAll('.field-cell');
 
+
   for (let i = 0; i < cells.length; i++) {
     const row = Math.floor(i / 4);
     const col = i % 4;
     const value = game.board[row][col];
+    const cell = cells[i];
+
+    cell.className = 'field-cell';
 
     if (value === 0) {
-      cells[i].textContent = '';
+      cell.textContent = '';
     } else {
-      cells[i].textContent = value;
+      cell.textContent = value;
+      cell.classList.add(`field-cell--${value}`);
     }
   }
 }
